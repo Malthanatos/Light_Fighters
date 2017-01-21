@@ -2,8 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+Player_Controller.cs:
+Has References to: Game_Manager, Laser_Controller, 
+WASD/Arrow for movement/aim by default
+Right stick/Left stick for movement and aim for PS4 and XBox controllers
+Firing is automatic by aim
+Binds controller when player presses A/X
+Enter/Start for pause -> signal to Game_Manager
+Left shift/Left trigger for secondary fire
+OnTriggerEnter for power-ups
+Power-ups are passive
+Health increases when hit by other players
+Heath decreases according to type of damage
+Collsion: minimal damage
+Beams: moderate damage
+Missile: instant death on direct hit, some splash damage
+Boss: instant death on collision
+*/
+
 public class Player_Three_Controller : MonoBehaviour
 {
+    private Game_Manager GM;
+    private Laser_Controller LC;
+
     public bool move;
     public bool aim;
 
@@ -15,14 +37,11 @@ public class Player_Three_Controller : MonoBehaviour
 
     Vector3 move_vector;
 
-
-    // Use this for initialization
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetAxis("Move3X") < -0.1f || Input.GetAxis("Move3X") > 0.1f ||
