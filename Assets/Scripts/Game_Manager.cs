@@ -15,7 +15,6 @@ Send signal to Enemy_Generator when game starts/round ends with stage number
 
 public class Game_Manager : MonoBehaviour
 {
-    public Pellet_Shooter_Controller LC;
     public Enemy_Generator EG;
 
     public bool DEBUG;
