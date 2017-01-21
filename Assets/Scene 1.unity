@@ -402,12 +402,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf7fdb908621274b8baeef3f647f022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LC: {fileID: 1354823006}
+  LC: {fileID: 0}
   EG: {fileID: 742598407}
-  enemy_check_timer: 0
-  enemy_check_threshold: 10
-  current_stage: 1
-  DEBUG: 0
+  DEBUG: 1
 --- !u!4 &691016337
 Transform:
   m_ObjectHideFlags: 0
@@ -449,7 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GM: {fileID: 691016336}
-  Fighter: {fileID: 1697439777223832, guid: 7e1e60d270b6d364ba2dc0b745cb4a4b, type: 2}
+  Fighter: {fileID: -17632104, guid: 7e1e60d270b6d364ba2dc0b745cb4a4b, type: 2}
 --- !u!4 &742598408
 Transform:
   m_ObjectHideFlags: 0
@@ -758,6 +755,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44e8352edc8458439bf733a83ed8889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pellet: {fileID: 0}
+  pellet_forward_force: 0
 --- !u!4 &1354823007
 Transform:
   m_ObjectHideFlags: 0
