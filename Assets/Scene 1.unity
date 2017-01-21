@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GM: {fileID: 691016336}
-  Fighter: {fileID: 1697439777223832, guid: 7e1e60d270b6d364ba2dc0b745cb4a4b, type: 2}
+  Fighter: {fileID: -17632104, guid: 7e1e60d270b6d364ba2dc0b745cb4a4b, type: 2}
 --- !u!4 &742598408
 Transform:
   m_ObjectHideFlags: 0
