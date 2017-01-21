@@ -17,6 +17,8 @@ public class Game_Manager : MonoBehaviour
 {
     private Laser_Controller LC;
 
+    public bool DEBUG;
+
 	void Start ()
     {
 		

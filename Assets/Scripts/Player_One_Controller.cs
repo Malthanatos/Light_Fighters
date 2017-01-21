@@ -23,11 +23,18 @@ Boss: instant death on collision
 
 public class Player_One_Controller : MonoBehaviour
 {
-    private Game_Manager GM;
+    public Game_Manager GM;
     private Laser_Controller LC;
+
+    //debug firing
+    public GameObject test_laser;
+    public float shine_time = 0.2f;
 
     public bool move;
     public bool aim;
+    public float firing_timer;
+    public float firing_time;
+    public bool firing;
 
     public float rotation_speed;
     public float movement_speed;
@@ -58,6 +65,40 @@ public class Player_One_Controller : MonoBehaviour
             target_rotation = Quaternion.LookRotation(aim_vector, transform.up);
             aim = true;
         }
+
+        if (Input.GetAxisRaw("Fire1") == 1)
+        {
+            firing = true;
+            firing_timer += Time.deltaTime;
+        }
+
+        if (Input.GetAxisRaw("Fire1") == 0)
+        {
+            firing = false;
+
+            if (firing_timer > 0)
+                firing_timer -= Time.deltaTime;
+
+            if (firing_timer < 0)
+                firing_timer = 0;
+        }
+
+        //debug firing
+        if (GM.DEBUG == true)
+        {
+            if (test_laser.GetComponent<MeshRenderer>().enabled == true)
+            {
+                shine_time -= Time.deltaTime;
+                if (shine_time <= 0.0f)
+                {
+                    test_laser.GetComponent<MeshRenderer>().enabled = false;
+                    shine_time = 0.2f;
+                }
+
+            }
+        }
+
+
     }
 
    void FixedUpdate()
@@ -73,5 +114,17 @@ public class Player_One_Controller : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, target_rotation, rotation_speed);
             aim = false;
         }
+
+        if (firing == true && firing_timer >= firing_time)
+        {
+            //if debug, light up debug
+            if (GM.DEBUG == true)
+                test_laser.GetComponent<MeshRenderer>().enabled = true;
+
+            firing_timer = 0;
+        }
+
+         
+
     } 
 }
