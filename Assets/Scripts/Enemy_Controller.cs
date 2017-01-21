@@ -21,20 +21,116 @@ Boss will do nothing, instant death on collision
 
 public class Enemy_Controller : MonoBehaviour
 {
-    private Game_Manager GM;
+    public Game_Manager GM;
 
-    void Start()
+    public enum behavior_type { default_behavior, formation, drift };
+    public behavior_type actions = behavior_type.default_behavior;
+    public ArrayList formation_spec;
+    public float movement_speed;
+    public float rotation_speed;
+    public Vector3 movement_vector;
+    public Vector3 aim_vector;
+    public Quaternion target_rotation;
+    public bool live;
+
+    public void Start()
     {
 
     }
 
-    void Update()
+    public void Update()
     {
 
     }
 
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
-
+        switch (actions)
+        {
+            case behavior_type.default_behavior:
+                Default_Behvaior();
+                break;
+            case behavior_type.formation:
+                Formation_Behvaior();
+                break;
+            case behavior_type.drift:
+                Drift_Behvaior();
+                break;
+            default:
+                return;
+        }
+        if (live)// && !GM.DEBUG)
+        {
+            transform.position += movement_vector * movement_speed;
+            //transform.rotation = Quaternion.Slerp(transform.rotation, target_rotation, rotation_speed);
+            
+        }
     }
+
+    public virtual void Default_Behvaior() { }
+    public virtual void Formation_Behvaior() { }
+    public virtual void Drift_Behvaior() { }
+
+    private float dist_to(float x, float z)
+    {
+        float dx = transform.position.x - x;
+        float dz = transform.position.z - z;
+        return Mathf.Sqrt(dx * dx + dz * dz);
+    }
+
+    public void target()
+    {
+        float dist = 0.0f;
+        float dist_to_i = 0.0f;
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        GameObject player = players[0];
+        for (int i = 0; i < players.Length; ++i)
+        {
+            dist_to_i = Vector3.Distance(transform.position, players[i].transform.position);
+            if (i == 0 || dist > dist_to_i)
+            {
+                dist = dist_to_i;
+                player = players[i];
+            }
+        }
+        if (dist != 0.0f)
+        {
+            transform.LookAt(player.transform);
+        }
+    }
+}
+
+public class AsteroidClass : Enemy_Controller
+{
+    public override void Default_Behvaior() { }
+    public override void Formation_Behvaior() { }
+    public override void Drift_Behvaior() { }
+}
+
+public class MissileClass : Enemy_Controller
+{
+    public override void Default_Behvaior() { }
+    public override void Formation_Behvaior() { }
+    public override void Drift_Behvaior() { }
+}
+
+public class ScoutClass : Enemy_Controller
+{
+    public override void Default_Behvaior() { }
+    public override void Formation_Behvaior() { }
+    public override void Drift_Behvaior() { }
+}
+
+public class TurrentClass : Enemy_Controller
+{
+    public override void Default_Behvaior() { }
+    public override void Formation_Behvaior() { }
+    public override void Drift_Behvaior() { }
+}
+
+public class BossClass : Enemy_Controller
+{
+    public override void Default_Behvaior() { }
+    public override void Formation_Behvaior() { }
+    public override void Drift_Behvaior() { }
 }
