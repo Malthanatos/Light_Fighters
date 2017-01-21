@@ -24,7 +24,7 @@ Boss: instant death on collision
 public class Player_Two_Controller : MonoBehaviour
 {
     private Game_Manager GM;
-    private Laser_Controller LC;
+    private Pellet_Shooter_Controller LC;
 
     public bool move;
     public bool aim;

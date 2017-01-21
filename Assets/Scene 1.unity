@@ -701,7 +701,7 @@ GameObject:
   - component: {fileID: 1354823007}
   - component: {fileID: 1354823006}
   m_Layer: 0
-  m_Name: Laser_Conrtoller
+  m_Name: Pellet_Shooter_Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -718,7 +718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44e8352edc8458439bf733a83ed8889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pellet: {fileID: 0}
+  pellet: {fileID: 1589369439456668, guid: 7326ffb44172c7a4b9fc7a22af166a42, type: 2}
   pellet_forward_force: 0
 --- !u!4 &1354823007
 Transform:

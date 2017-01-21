@@ -15,7 +15,7 @@ Any one secondary color will place and activate white when it intersects with an
 Secondary and white laser generators will always shoot exactly 1 pellet per collision
 */
 
-public class Laser_Controller : MonoBehaviour
+public class Pellet_Shooter_Controller : MonoBehaviour
 {
     private Game_Manager GM;
 
@@ -34,11 +34,6 @@ public class Laser_Controller : MonoBehaviour
             {
                 GameObject temporary_pellet_handler;
                 temporary_pellet_handler = Instantiate(pellet, transform.position, transform.rotation) as GameObject;
-
-                Rigidbody temporary_rigid_body;
-                temporary_rigid_body = temporary_pellet_handler.GetComponent<Rigidbody>();
-
-                temporary_rigid_body.AddForce(transform.forward * pellet_forward_force);
 
                 //Despawn pellet after 3 seconds if not already destroyed
                 Destroy(temporary_pellet_handler, 3.0f);
