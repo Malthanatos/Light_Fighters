@@ -34,9 +34,7 @@ public class Enemy_Generator : MonoBehaviour
 
     public void Activate_Stage(int stage)
     {
-        GameObject fighter = (GameObject)Instantiate(Fighter, new Vector3(25.0f, 0.0f, 25.0f), Quaternion.identity);
-        //Enemy_Controller EC = fighter.AddComponent<Enemy_Controller>();
-        //FighterClass f = new FighterClass();
+        Stage1();
     }
 	
 	void Update ()
@@ -47,5 +45,17 @@ public class Enemy_Generator : MonoBehaviour
     private void FixedUpdate()
     {
             
+    }
+
+    public void Stage1()
+    {
+        GameObject fighter = (GameObject)Instantiate(Fighter, new Vector3(25.0f, 0.0f, 25.0f), Quaternion.identity);
+        //Enemy_Controller EC = fighter.AddComponent<Enemy_Controller>();
+        //FighterClass f = new FighterClass();
+    }
+
+    public void Stage2()
+    {
+
     }
 }
