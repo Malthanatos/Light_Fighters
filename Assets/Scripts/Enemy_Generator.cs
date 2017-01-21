@@ -23,16 +23,20 @@ Boss Stage: Three turrents in opposing positions(secondary colors), after defeat
 
 public class Enemy_Generator : MonoBehaviour
 {
-    private Game_Manager GM;
+    public Game_Manager GM;
+
+    public GameObject Fighter;
 
 	void Start ()
     {
 		
 	}
 
-    public void Actiavte_Stage(int stage)
+    public void Activate_Stage(int stage)
     {
-
+        GameObject fighter = (GameObject)Instantiate(Fighter, new Vector3(25.0f, 0.0f, 25.0f), Quaternion.identity);
+        //Enemy_Controller EC = fighter.AddComponent<Enemy_Controller>();
+        //FighterClass f = new FighterClass();
     }
 	
 	void Update ()

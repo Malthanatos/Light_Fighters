@@ -37,7 +37,11 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+<<<<<<< HEAD
   m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0.43667564, g: 0.48427135, b: 0.56452316, a: 1}
+>>>>>>> origin/master
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -160,7 +164,7 @@ GameObject:
   - component: {fileID: 283052054}
   m_Layer: 0
   m_Name: Player_Two
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -369,7 +373,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf7fdb908621274b8baeef3f647f022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DEBUG: 1
+  LC: {fileID: 1354823006}
+  EG: {fileID: 742598407}
+  DEBUG: 0
 --- !u!4 &691016337
 Transform:
   m_ObjectHideFlags: 0
@@ -410,6 +416,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195ad6cf13f40ff4bb0f4b5fd46475f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GM: {fileID: 691016336}
+  Fighter: {fileID: 1697439777223832, guid: 7e1e60d270b6d364ba2dc0b745cb4a4b, type: 2}
 --- !u!4 &742598408
 Transform:
   m_ObjectHideFlags: 0
@@ -436,7 +444,7 @@ GameObject:
   - component: {fileID: 970665366}
   m_Layer: 0
   m_Name: Player_One
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -458,7 +466,7 @@ MonoBehaviour:
   move: 0
   aim: 0
   firing_timer: 0
-  firing_time: 0.1
+  firing_time: 0
   firing: 0
   has_special: 0
   rotation_speed: 0.3
@@ -528,7 +536,7 @@ GameObject:
   - component: {fileID: 1174530230}
   m_Layer: 0
   m_Name: Player_Three
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -845,13 +853,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2006034795}
-  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: -0.5}
   m_LocalPosition: {x: 0, y: 100, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 270, z: 0}
 --- !u!1 &2036290485
 GameObject:
   m_ObjectHideFlags: 0

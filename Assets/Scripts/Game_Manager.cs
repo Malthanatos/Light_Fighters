@@ -15,13 +15,18 @@ Send signal to Enemy_Generator when game starts/round ends with stage number
 
 public class Game_Manager : MonoBehaviour
 {
+<<<<<<< HEAD
     private Pellet_Shooter_Controller LC;
+=======
+    public Laser_Controller LC;
+    public Enemy_Generator EG;
+>>>>>>> origin/master
 
     public bool DEBUG;
 
 	void Start ()
     {
-		
+        EG.Activate_Stage(1);
 	}
 	
 	void Update ()
