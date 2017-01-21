@@ -21,10 +21,12 @@ Missile: instant death on direct hit, some splash damage
 Boss: instant death on collision
 */
 
-public class Player_One_Controller : MonoBehaviour
+public class Player_Controller : MonoBehaviour
 {
     public Game_Manager GM;
     //public Pellet_Shooter PS;
+
+    public string player;
 
     //debug firing
     public GameObject test_laser;
@@ -54,20 +56,20 @@ public class Player_One_Controller : MonoBehaviour
 	
 	void Update ()
     {
-        if (Input.GetAxis("Move1X") < -0.1f || Input.GetAxis("Move1X") > 0.1f || 
-            Input.GetAxis("Move1Y") < -0.1f || Input.GetAxis("Move1Y") > 0.1f)
+        if (Input.GetAxis("Move" + player + "X") < -0.1f || Input.GetAxis("Move"+ player + "X") > 0.1f || 
+            Input.GetAxis("Move" + player + "Y") < -0.1f || Input.GetAxis("Move" + player + "Y") > 0.1f)
         {
-            move_vector = new Vector3(Input.GetAxisRaw("Move1Y"), 0.0f, Input.GetAxisRaw("Move1X"));
+            move_vector = new Vector3(Input.GetAxisRaw("Move" + player + "Y"), 0.0f, Input.GetAxisRaw("Move" + player + "X"));
             move = true;
         }
 
-        if (Input.GetAxis("Aim1X") < -0.1f || Input.GetAxis("Aim1X") > 0.1f ||
-            Input.GetAxis("Aim1Y") < -0.1f || Input.GetAxis("Aim1Y") > 0.1f)
+        if (Input.GetAxis("Aim" + player + "X") < -0.1f || Input.GetAxis("Aim" + player + "X") > 0.1f ||
+            Input.GetAxis("Aim" + player + "Y") < -0.1f || Input.GetAxis("Aim" + player + "Y") > 0.1f)
         {
             firing = true;
             firing_timer += Time.deltaTime;
 
-            aim_vector = new Vector3(-Input.GetAxisRaw("Aim1Y"), 0.0f, -Input.GetAxisRaw("Aim1X"));
+            aim_vector = new Vector3(-Input.GetAxisRaw("Aim" + player + "Y"), 0.0f, -Input.GetAxisRaw("Aim" + player+ "X"));
             target_rotation = Quaternion.LookRotation(aim_vector, transform.up);
             aim = true;
         }
@@ -82,7 +84,7 @@ public class Player_One_Controller : MonoBehaviour
         }
 
 
-        if (Input.GetAxisRaw("Special1") == 1)
+        if (Input.GetAxisRaw("Special" + player) == 1)
         {
             if (has_special == true)
                 use_special = true;
