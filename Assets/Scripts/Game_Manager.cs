@@ -18,11 +18,6 @@ public class Game_Manager : MonoBehaviour
     public Laser_Controller LC;
     public Enemy_Generator EG;
 
-    public float enemy_check_timer = 0;
-    public float enemy_check_threshold = 10;
-
-    public int current_stage = 1;
-
     public bool DEBUG;
 
 	void Start ()
@@ -32,16 +27,7 @@ public class Game_Manager : MonoBehaviour
 	
 	void Update ()
     {
-        enemy_check_timer += Time.deltaTime;
-
-        if(enemy_check_timer >= enemy_check_threshold)
-        {
-            GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
-
-
-
-            
-        }
+		
 	}
 
     private void FixedUpdate()
