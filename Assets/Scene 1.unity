@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667564, g: 0.48427147, b: 0.56452364, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -404,9 +404,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LC: {fileID: 1354823006}
   EG: {fileID: 742598407}
-  enemy_check_timer: 0
-  enemy_check_threshold: 10
-  current_stage: 1
   DEBUG: 0
 --- !u!4 &691016337
 Transform:
@@ -741,7 +738,7 @@ GameObject:
   - component: {fileID: 1354823007}
   - component: {fileID: 1354823006}
   m_Layer: 0
-  m_Name: Laser_Conrtoller
+  m_Name: Laser_Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -758,6 +755,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44e8352edc8458439bf733a83ed8889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pellet: {fileID: 0}
+  pellet_forward_force: 0
 --- !u!4 &1354823007
 Transform:
   m_ObjectHideFlags: 0
