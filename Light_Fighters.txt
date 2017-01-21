@@ -1,0 +1,94 @@
+CONSTANTS
+Function_Names()
+variable_names
+Class_Names
+
+All variables are public
+Only debug functions are public
+
+References should be in the following form for different classes:
+Game_Manager GM = ...
+Laser_Controller LC = ...
+etc.
+
+All physics and timing based stuff must be under FixedUpdate(), collisions should be handled in Update() (higher framerate)
+Be cautious of order, FixedUpdate and Update do not guarantee any kind of order, but FixedUpdate generally guarantees very close timing
+
+Scripts:
+Player_Controller.cs:
+Has References to: Game_Manager, Laser_Controller, 
+WASD/Arrow for movement/aim by default
+Right stick/Left stick for movement and aim for PS4 and XBox controllers
+Firing is automatic by aim
+Binds controller when player presses A/X
+Enter/Start for pause -> signal to Game_Manager
+Left shift/Left trigger for secondary fire
+OnTriggerEnter for power-ups
+Power-ups are passive
+Health increases when hit by other players
+Heath decreases according to type of damage
+Collsion: minimal damage
+Beams: moderate damage
+Missile: instant death on direct hit, some splash damage
+Boss: instant death on collision
+
+Laser_Controller.cs: (Laser Generators are dummy objects that only have position and rotation, act as references)
+Has References to: Game_Manager,
+Red, Green, Blue; Yellow, Cyan, Magenta; White
+Single script controlls all 7 laser generators, which are instantiated at startup
+The primary laser generators are all childeren of the corresponding players, and thus follow them around at all times, rotation follows left stick
+Beam pellets are generated one at a time and are fired in the direction that the generator is pointing
+When signaled that two primary colors have collided, it places and activates a secondary color
+The same will occur when a secondary color collides with a primary color, except with white
+Any one secondary color will place and activate white when it intersects with any primary color
+Secondary and white laser generators will always shoot exactly 1 pellet per collision
+
+Laser_Pellet_Controller.cs:
+Has References to: Game_Manager, Laser_Controller,
+Default pellet is enemy pellet, auto deletes iteself on collision
+Governs the local behavior of given pellets
+Beams are pellets that are rotating spring shapes
+When the laser pellets hit something they do something corresponding to the type of collision, then self destruct
+Signals Laser_Controller when two colored pellets collide
+Deletes when it collides with an uncolored pellet
+
+Game_Manager.cs:
+Has References to: Laser_Controller, Enemy_Generator
+Governs different stages through states, include debug state setter in start menu
+Governs Start and pause menu behvaior
+Starts/resumes game when all or two players fire at the start icon
+Scrolls background while game is running
+Signals Enemy_Generator if no objects are tagged enemy (asteroids are included)
+Send signal to Enemy_Generator when game starts/round ends with stage number
+
+Enemy_Generator.cs: (basically a level controller)
+Has References to: Game_Manager, 
+Generates Asteroids and Enemies
+A primary function takes stage number as input from Game_Manager, then starts spawning, otherwise idle
+Generates different combinations of enemies in pseudo-random configurations depending on the stage
+Generally, asteroids will spawn randomly (outside of the map) if they are allowed in a stage, except first stage
+Each stage can allow or disallow asteroids impacting level win condition
+Stage 1: Asteroids only, random colors and configuration (asteroids are hard coded here)
+Stage 2: Scout swarms from the top, 3 random primary color swarms
+Stage 3: More scout swarms from the top, extra enemies from the bottom at the end (7), last is random secondary color
+Stage 4: Enemies swarm from all sides randomly, 3 primary swarms, 3 secondary swarms afterwards
+Stage 5: Introduces a single turrent centered, random primary color
+Stage 6:
+...
+Boss Stage: Three turrents in opposing positions (secondary colors), after defeated, generate random fighters (6 waves, 3 primary, 3 secondary),
+		concentric rings around centered boss, outer ring is split into secondary colors, inner ring is random primary colors
+
+Enemy_Controller.cs:
+Has References to: Game_Manager, 
+Which class governs which mechanics: scout, fighter, turrent, boss, asteroid, missile
+All attacks of the same type do equal damage (damage is done in Player_Controller)
+Any enemy can be any color, except boss, which is always white
+Checks color of impacts to determine damage from player
+All objects can be collided with
+Asteroids may drop power-ups, despawn after they leave the screen
+Scouts will kamakaze anything they are near, they tend to swarm, won't hit each other
+Fighters will use beam attacks and tend to target colors opposite to theirs (both primary and secondary colors)
+Turrents will use missiles and tend to attack anyone and do not move
+Missiles will are very slow, they track their designated target and explode after a certain amount of time
+Missiles can only be directly destroyed by their color
+Boss will do nothing, instant death on collision
