@@ -18,6 +18,9 @@ public class Laser_Pellet_Controller : MonoBehaviour
     private Game_Manager GM;
     private Laser_Controller LC;
 
+
+
+
     void Start ()
     {
 		
@@ -25,6 +28,7 @@ public class Laser_Pellet_Controller : MonoBehaviour
 	
 	void Update ()
     {
+       
 		
 	}
 

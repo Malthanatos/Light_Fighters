@@ -19,6 +19,10 @@ public class Laser_Controller : MonoBehaviour
 {
     private Game_Manager GM;
 
+    public GameObject pellet;
+
+    public float pellet_forward_force;
+
 	void Start ()
     {
 		
@@ -26,7 +30,19 @@ public class Laser_Controller : MonoBehaviour
 	
 	void Update ()
     {
-		
+	    if (Input.GetKeyDown(KeyCode.Space))
+            {
+                GameObject temporary_pellet_handler;
+                temporary_pellet_handler = Instantiate(pellet, transform.position, transform.rotation) as GameObject;
+
+                Rigidbody temporary_rigid_body;
+                temporary_rigid_body = temporary_pellet_handler.GetComponent<Rigidbody>();
+
+                temporary_rigid_body.AddForce(transform.forward * pellet_forward_force);
+
+                //Despawn pellet after 3 seconds if not already destroyed
+                Destroy(temporary_pellet_handler, 3.0f);
+            }	
 	}
 
     private void FixedUpdate()
