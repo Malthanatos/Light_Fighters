@@ -29,7 +29,7 @@ public class Player_Controller : MonoBehaviour
     public string player;
 
     //debug firing
-    public GameObject test_laser;
+    public Pellet_Shooter_Controller pellet_shooter;
     public float shine_time = 0.2f;
 
     public bool move;
@@ -63,6 +63,12 @@ public class Player_Controller : MonoBehaviour
             move = true;
         }
 
+        if (move == true)
+        {
+            transform.position += move_vector * movement_speed * Time.deltaTime;
+            move = false;
+        }
+
         if (Input.GetAxis("Aim" + player + "X") < -0.1f || Input.GetAxis("Aim" + player + "X") > 0.1f ||
             Input.GetAxis("Aim" + player + "Y") < -0.1f || Input.GetAxis("Aim" + player + "Y") > 0.1f)
         {
@@ -93,12 +99,12 @@ public class Player_Controller : MonoBehaviour
         //debug firing
         if (GM.DEBUG == true)
         {
-            if (test_laser.GetComponent<MeshRenderer>().enabled == true)
+            if (pellet_shooter.GetComponent<MeshRenderer>().enabled == true)
             {
                 shine_time -= Time.deltaTime;
                 if (shine_time <= 0.0f)
                 {
-                    test_laser.GetComponent<MeshRenderer>().enabled = false;
+                    pellet_shooter.GetComponent<MeshRenderer>().enabled = false;
                     shine_time = 0.2f;
                 }
 
@@ -110,11 +116,7 @@ public class Player_Controller : MonoBehaviour
 
    void FixedUpdate()
     {
-        if (move == true)
-        {
-            transform.position += move_vector * movement_speed;
-            move = false;
-        }
+
 
         if (aim == true)
         {
@@ -126,14 +128,31 @@ public class Player_Controller : MonoBehaviour
         {
             //if debug, light up debug
             if (GM.DEBUG == true)
-                test_laser.GetComponent<MeshRenderer>().enabled = true;
+                pellet_shooter.GetComponent<MeshRenderer>().enabled = true;
+
+            //shoot
+            pellet_shooter.Shoot();
 
             firing_timer = 0;
 
         }
 
         if (use_special == true)
+        {
             has_special = false;
+            if(player == "1")
+            {
+
+            }
+            else if(player =="2")
+            {
+
+            }
+            else if(player == "3")
+            {
+
+            }
+        }
          
     } 
 }

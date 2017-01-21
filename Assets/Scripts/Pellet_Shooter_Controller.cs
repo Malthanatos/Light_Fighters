@@ -17,7 +17,7 @@ Secondary and white laser generators will always shoot exactly 1 pellet per coll
 
 public class Pellet_Shooter_Controller : MonoBehaviour
 {
-    private Game_Manager GM;
+    public Game_Manager GM;
 
     public GameObject pellet;
 
@@ -30,18 +30,17 @@ public class Pellet_Shooter_Controller : MonoBehaviour
 	
 	void Update ()
     {
-	    if (Input.GetKeyDown(KeyCode.Space))
-            {
-                GameObject temporary_pellet_handler;
-                temporary_pellet_handler = Instantiate(pellet, transform.position, transform.rotation) as GameObject;
 
-                //Despawn pellet after 3 seconds if not already destroyed
-                Destroy(temporary_pellet_handler, 3.0f);
-            }	
 	}
 
     private void FixedUpdate()
     {
 
+    }
+
+    public void Shoot()
+    {
+        if (GM.DEBUG == true)
+            print("I am shooting");
     }
 }
