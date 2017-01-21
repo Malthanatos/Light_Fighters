@@ -35,6 +35,9 @@ public class Player_One_Controller : MonoBehaviour
     public float firing_timer;
     public float firing_time;
     public bool firing;
+    public bool has_special;
+    bool use_special;
+
 
     public float rotation_speed;
     public float movement_speed;
@@ -46,7 +49,7 @@ public class Player_One_Controller : MonoBehaviour
 
 	void Start ()
     {
-		
+        has_special = true;
 	}
 	
 	void Update ()
@@ -61,26 +64,28 @@ public class Player_One_Controller : MonoBehaviour
         if (Input.GetAxis("Aim1X") < -0.1f || Input.GetAxis("Aim1X") > 0.1f ||
             Input.GetAxis("Aim1Y") < -0.1f || Input.GetAxis("Aim1Y") > 0.1f)
         {
+            firing = true;
+            firing_timer += Time.deltaTime;
+
             aim_vector = new Vector3(-Input.GetAxisRaw("Aim1Y"), 0.0f, -Input.GetAxisRaw("Aim1X"));
             target_rotation = Quaternion.LookRotation(aim_vector, transform.up);
             aim = true;
         }
-
-        if (Input.GetAxisRaw("Fire1") == 1)
-        {
-            firing = true;
-            firing_timer += Time.deltaTime;
-        }
-
-        if (Input.GetAxisRaw("Fire1") == 0)
+        else
         {
             firing = false;
-
             if (firing_timer > 0)
                 firing_timer -= Time.deltaTime;
 
             if (firing_timer < 0)
                 firing_timer = 0;
+        }
+
+
+        if (Input.GetAxisRaw("Special1") == 1)
+        {
+            if (has_special == true)
+                use_special = true;
         }
 
         //debug firing
@@ -122,8 +127,11 @@ public class Player_One_Controller : MonoBehaviour
                 test_laser.GetComponent<MeshRenderer>().enabled = true;
 
             firing_timer = 0;
+
         }
 
+        if (use_special == true)
+            has_special = false;
          
 
     } 
