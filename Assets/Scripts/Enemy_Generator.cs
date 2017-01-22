@@ -33,8 +33,6 @@ public class Enemy_Generator : MonoBehaviour
     public GameObject Missile;
     public GameObject Boss;
 
-    //-160 to 160
-    //-70 to 70
     public float s_width = 320.0f;//Screen.width;
     public float s_height = 140.0f;//Screen.height;
 
