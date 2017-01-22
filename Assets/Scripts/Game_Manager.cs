@@ -19,14 +19,22 @@ public class Game_Manager : MonoBehaviour
 
     public bool DEBUG;
 
+    public float time_till_enemy_check = 10.0f;
+
 	void Start ()
     {
-        EG.Activate_Stage(1);
+        if (DEBUG == true)
+            EG.Activate_Stage(1);
 	}
 	
 	void Update ()
     {
-		
+        time_till_enemy_check -= Time.deltaTime;
+
+        if(time_till_enemy_check >= 0)
+        {
+            
+        }
 	}
 
     private void FixedUpdate()
