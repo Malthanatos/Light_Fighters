@@ -25,8 +25,8 @@ public class Pellet_Shooter_Controller : MonoBehaviour
 
 	void Start ()
     {
-		
-	}
+        GM = GameObject.FindObjectOfType<Game_Manager>();
+    }
 	
 	void Update ()
     {

@@ -21,7 +21,7 @@ public class Game_Manager : MonoBehaviour
 
 	void Start ()
     {
-        EG.Activate_Stage(4);
+        EG.Activate_Stage(5);
 	}
 	
 	void Update ()

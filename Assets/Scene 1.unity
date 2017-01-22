@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -544,6 +544,7 @@ MonoBehaviour:
   GM: {fileID: 691016336}
   Asteroid: {fileID: -1132822956, guid: 819f1224f38b2c8409772b20327bc64b, type: 2}
   Scout: {fileID: -237260352, guid: 4c7659a4c60819144b378c095d70cd90, type: 2}
+  Swarm: {fileID: 1796233012676258, guid: f07a6a017a2c66c42bf2a303a5a77741, type: 2}
   Fighter: {fileID: 1427583710283724, guid: 7e1e60d270b6d364ba2dc0b745cb4a4b, type: 2}
   Turrent: {fileID: 1595903502048778, guid: aa6b21ae636be2e4d8894304c47ef91f, type: 2}
   Missile: {fileID: 1163551068301500, guid: 2fe65cafe74b28a408862163f74d6fca, type: 2}
@@ -552,10 +553,13 @@ MonoBehaviour:
   s_height: 100
   stage: 0
   timer: 0
+  stage_1_delay: 5
+  stage_1_asteroids: 12
   stage_2_delay: 5
-  stage_2_asteroids: 12
+  stage_2_scouts: 12
   stage_3_delay: 5
-  stage_3_scouts: 12
+  stage_3_fighters: 12
+  stage_5_scouts: 21
 --- !u!4 &742598408
 Transform:
   m_ObjectHideFlags: 0

@@ -27,6 +27,7 @@ public class Enemy_Generator : MonoBehaviour
 
     public GameObject Asteroid;
     public GameObject Scout;
+    public GameObject Swarm;
     public GameObject Fighter;
     public GameObject Turrent;
     public GameObject Missile;
@@ -47,6 +48,8 @@ public class Enemy_Generator : MonoBehaviour
 
     public float stage_3_delay = 5.0f;
     public int stage_3_fighters = 12;
+
+    public int stage_5_scouts = 21;
 
     void Start()
     {
@@ -76,6 +79,11 @@ public class Enemy_Generator : MonoBehaviour
         {
             Debug.Log("Actvating Stage 4");
             stage = 4;
+        }
+        else if (start_stage == 5)
+        {
+            Debug.Log("Actvating Stage 5");
+            stage = 5;
         }
         else
         {
@@ -139,12 +147,19 @@ public class Enemy_Generator : MonoBehaviour
         }
         if (stage == 4)
         {
-            //scouts
+            //turrents
              for (int i = 0; i < 3; ++i)
             {
                 Debug.Log("Placing turrent");
                 GameObject turrent = (GameObject)Instantiate(Turrent, generate_random_direction(direction.onscreen), Quaternion.identity);
             }
+            stage = 0;
+        }
+        if (stage == 5)
+        {
+            //scout swarm
+            Debug.Log("Placing swarm");
+            GameObject swarm = (GameObject)Instantiate(Swarm, generate_random_direction(direction.any), Quaternion.identity);
             stage = 0;
         }
     }

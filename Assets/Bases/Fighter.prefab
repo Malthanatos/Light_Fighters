@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33245706941398848}
   - component: {fileID: 23666876314527932}
   - component: {fileID: 114043558196202144}
+  - component: {fileID: 114799386895201726}
   m_Layer: 0
   m_Name: Fighter
   m_TagString: Enemy
@@ -101,3 +102,18 @@ MonoBehaviour:
   target_rotation: {x: 0, y: 0, z: 0, w: 0}
   live: 0
   bounds: 0
+  timer: 0
+  delay: 5
+--- !u!114 &114799386895201726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1427583710283724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44e8352edc8458439bf733a83ed8889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GM: {fileID: 0}
+  pellet: {fileID: 114570748476934304, guid: 6376670477e4fa147bfbf32e4093b5f5, type: 2}
