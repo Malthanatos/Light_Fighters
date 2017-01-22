@@ -52,7 +52,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 3
-    joyNum: 10
+    joyNum: 3
   - serializedVersion: 3
     m_Name: Move1X
     descriptiveName: 
@@ -195,8 +195,8 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 4
-    joyNum: 1
+    axis: 0
+    joyNum: 3
   - serializedVersion: 3
     m_Name: Move3Y
     descriptiveName: 
@@ -211,8 +211,8 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 4
-    joyNum: 1
+    axis: 1
+    joyNum: 3
   - serializedVersion: 3
     m_Name: Aim3X
     descriptiveName: 
@@ -227,8 +227,8 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 4
-    joyNum: 1
+    axis: 3
+    joyNum: 3
   - serializedVersion: 3
     m_Name: Aim3Y
     descriptiveName: 
@@ -244,7 +244,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 4
-    joyNum: 1
+    joyNum: 3
   - serializedVersion: 3
     m_Name: Special1
     descriptiveName: 

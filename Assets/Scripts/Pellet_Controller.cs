@@ -13,10 +13,10 @@ Signals Laser_Controller when two colored pellets collide
 Deletes when it collides with an uncolored pellet
 */
 
-public class Laser_Pellet_Controller : MonoBehaviour
+public class Pellet_Controller : MonoBehaviour
 {
     private Game_Manager GM;
-    private Laser_Controller LC;
+    private Pellet_Shooter_Controller LC;
 
     void Start ()
     {

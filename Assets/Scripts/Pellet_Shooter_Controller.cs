@@ -15,9 +15,15 @@ Any one secondary color will place and activate white when it intersects with an
 Secondary and white laser generators will always shoot exactly 1 pellet per collision
 */
 
-public class Laser_Controller : MonoBehaviour
+public class Pellet_Shooter_Controller : MonoBehaviour
 {
-    private Game_Manager GM;
+    public Game_Manager GM;
+
+    public Pellet_Controller pellet;
+
+    public float pellet_forward_force;
+
+    enum color {red, blue, green, yellow, cyan, magenta, white };
 
 	void Start ()
     {
@@ -26,11 +32,19 @@ public class Laser_Controller : MonoBehaviour
 	
 	void Update ()
     {
-		
+
 	}
 
     private void FixedUpdate()
     {
 
+    }
+
+    public void Shoot()
+    {
+        if (GM.DEBUG == true)
+            print("I am shooting");
+        //Have access to direction and color, then pass color to Pellet_Controller
+        Instantiate(pellet, transform.position, transform.rotation);
     }
 }

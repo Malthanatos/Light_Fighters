@@ -1,23 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
+--- !u!114 &-1215038382
+MonoBehaviour:
   m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1060040216772502}
-  m_IsPrefabParent: 1
---- !u!1 &1060040216772502
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: -661553258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33082197a359811479566200e62e8f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GM: {fileID: 0}
+  actions: 0
+  movement_speed: 0
+  rotation_speed: 0
+  movement_vector: {x: 0, y: 0, z: 0}
+  aim_vector: {x: 0, y: 0, z: 0}
+  target_rotation: {x: 0, y: 0, z: 0, w: 0}
+  live: 0
+--- !u!23 &-775940404
+Renderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: -661553258}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!1 &-661553258
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
+<<<<<<< HEAD:Assets/Bases/Missile.prefab
   - component: {fileID: 4841149101898788}
   - component: {fileID: 33470400969545830}
   - component: {fileID: 23672484570076876}
@@ -25,22 +54,37 @@ GameObject:
   m_Layer: 0
   m_Name: Missile
   m_TagString: Enemy
+=======
+  - 0: {fileID: -595198940}
+  - 0: {fileID: 4692070}
+  - 0: {fileID: -775940404}
+  - 0: {fileID: -1215038382}
+  m_Layer: 0
+  m_Name: Enemy
+  m_TagString: Untagged
+>>>>>>> b4c36b66d9a3b1a989ae97dc54d35ea804113625:Assets/Bases/Enemy.prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4841149101898788
+  m_IsActive: 0
+--- !u!4 &-595198940
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Bases/Missile.prefab
   m_GameObject: {fileID: 1060040216772502}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+=======
+  m_GameObject: {fileID: -661553258}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+>>>>>>> b4c36b66d9a3b1a989ae97dc54d35ea804113625:Assets/Bases/Enemy.prefab
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 25, y: 25, z: 25}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+<<<<<<< HEAD:Assets/Bases/Missile.prefab
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!23 &23672484570076876
 MeshRenderer:
@@ -74,10 +118,14 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
 --- !u!33 &33470400969545830
+=======
+--- !u!33 &4692070
+>>>>>>> b4c36b66d9a3b1a989ae97dc54d35ea804113625:Assets/Bases/Enemy.prefab
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Assets/Bases/Missile.prefab
   m_GameObject: {fileID: 1060040216772502}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &114126620132288418
@@ -99,3 +147,19 @@ MonoBehaviour:
   aim_vector: {x: 0, y: 0, z: 0}
   target_rotation: {x: 0, y: 0, z: 0, w: 0}
   live: 0
+=======
+  m_GameObject: {fileID: -661553258}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: -661553258}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1
+>>>>>>> b4c36b66d9a3b1a989ae97dc54d35ea804113625:Assets/Bases/Enemy.prefab
