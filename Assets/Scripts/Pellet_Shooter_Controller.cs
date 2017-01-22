@@ -21,6 +21,8 @@ public class Pellet_Shooter_Controller : MonoBehaviour
 
     public Pellet_Controller pellet;
 
+    public float pellet_forward_force;
+
     enum color {red, blue, green, yellow, cyan, magenta, white };
 
 	void Start ()
