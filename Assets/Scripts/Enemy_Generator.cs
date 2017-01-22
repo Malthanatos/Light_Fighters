@@ -38,8 +38,12 @@ public class Enemy_Generator : MonoBehaviour
     public int stage;
 
     public float timer;
+
     public float stage_2_delay = 5.0f;
     public int stage_2_asteroids = 12;
+
+    public float stage_3_delay = 5.0f;
+    public int stage_3_scouts = 12;
 
     void Start()
     {
@@ -58,6 +62,12 @@ public class Enemy_Generator : MonoBehaviour
             Debug.Log("Actvating Stage 2");
             stage = 2;
             timer = stage_2_delay + Time.fixedTime;
+        }
+        else if (start_stage == 3)
+        {
+            Debug.Log("Actvating Stage 3");
+            stage = 3;
+            timer = stage_3_delay + Time.fixedTime;
         }
         else
         {
@@ -91,6 +101,23 @@ public class Enemy_Generator : MonoBehaviour
                 timer = stage_2_delay + Time.fixedTime;
             }
             if (stage_2_asteroids == 0)
+            {
+                stage = 0;
+            }
+        }
+        if (stage == 3)
+        {
+            //scouts
+            if (timer <= Time.fixedTime)
+            {
+                Debug.Log("Placing Scout");
+                GameObject scout = (GameObject)Instantiate(Scout, generate_random_direction(direction.any), Quaternion.identity);
+                Enemy_Controller EC = scout.GetComponent<Enemy_Controller>();
+                EC.movement_speed = 0.5f;
+                --stage_3_scouts;
+                timer = stage_3_delay + Time.fixedTime;
+            }
+            if (stage_3_scouts == 0)
             {
                 stage = 0;
             }

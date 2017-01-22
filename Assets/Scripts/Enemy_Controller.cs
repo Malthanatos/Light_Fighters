@@ -97,7 +97,7 @@ public class Enemy_Controller : MonoBehaviour
         return Mathf.Sqrt(dx * dx + dz * dz);
     }
 
-    public void target()
+    public float target()
     {
         float dist = 0.0f;
         float dist_to_i = 0.0f;
@@ -116,6 +116,7 @@ public class Enemy_Controller : MonoBehaviour
         {
             transform.LookAt(player.transform);
         }
+        return dist;
     }
 }
 
