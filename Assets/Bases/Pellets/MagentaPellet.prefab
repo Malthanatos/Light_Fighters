@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23378541836132170}
   - component: {fileID: 114570748476934304}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: MagentaPellet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
