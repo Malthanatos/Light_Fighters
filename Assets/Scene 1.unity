@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GM: {fileID: 691016336}
-  pellet: {fileID: 1589369439456668, guid: 7326ffb44172c7a4b9fc7a22af166a42, type: 2}
+  pellet: {fileID: 114570748476934304, guid: 7326ffb44172c7a4b9fc7a22af166a42, type: 2}
   pellet_forward_force: 0
 --- !u!1 &172009215
 GameObject:
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GM: {fileID: 691016336}
-  pellet: {fileID: 1589369439456668, guid: 7326ffb44172c7a4b9fc7a22af166a42, type: 2}
+  pellet: {fileID: 114570748476934304, guid: 7326ffb44172c7a4b9fc7a22af166a42, type: 2}
   pellet_forward_force: 0
 --- !u!1 &642265063
 GameObject:
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GM: {fileID: 691016336}
-  pellet: {fileID: 1589369439456668, guid: 7326ffb44172c7a4b9fc7a22af166a42, type: 2}
+  pellet: {fileID: 114570748476934304, guid: 7326ffb44172c7a4b9fc7a22af166a42, type: 2}
   pellet_forward_force: 0
 --- !u!1 &691016335
 GameObject:

@@ -19,7 +19,7 @@ public class Pellet_Shooter_Controller : MonoBehaviour
 {
     public Game_Manager GM;
 
-    public GameObject pellet;
+    public Pellet_Controller pellet;
 
     public float pellet_forward_force;
 
