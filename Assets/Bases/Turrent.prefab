@@ -101,3 +101,5 @@ MonoBehaviour:
   target_rotation: {x: 0, y: 0, z: 0, w: 0}
   live: 0
   bounds: 0
+  timer: 0
+  delay: 5
