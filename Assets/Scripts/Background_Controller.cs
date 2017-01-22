@@ -11,7 +11,7 @@ public class Background_Controller : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-        if (transform.position.x == 2700.0f)
+        if (transform.position.x >= 2700.0f)
         {
             transform.position = new Vector3(-2700.0f, -0.1f, 1.0f);
         }
