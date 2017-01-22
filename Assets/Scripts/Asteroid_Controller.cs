@@ -17,7 +17,7 @@ public class Asteroid_Controller : Enemy_Controller
             go_to = EG.generate_random_direction(Enemy_Generator.direction.onscreen);
             Debug.Log(go_to);
             movement_vector = Vector3.Normalize(go_to - transform.position);
-            Debug.Log(movement_vector);
+            //Debug.Log(movement_vector);
         }
     }
     public override void Formation_Behvaior() { }

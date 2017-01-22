@@ -34,7 +34,7 @@ public class Enemy_Generator : MonoBehaviour
     public GameObject Boss;
 
     public float s_width = 320.0f;//Screen.width;
-    public float s_height = 100.0f;//Screen.height;
+    public float s_height = 140.0f;//Screen.height;
 
     public int stage;
 
@@ -167,22 +167,21 @@ public class Enemy_Generator : MonoBehaviour
     public enum direction { up, down, left, right, horizontal, vertical, any, onscreen };
     public Vector3 generate_random_direction(direction d)
     {
-        //Note: these names are out of whack due to camera changes
         //Values outside of the screen within half of the screen size
-        float left = Random.Range(s_height, s_height + (s_height / 2));
+        /*float left = Random.Range(s_height, s_height + (s_height / 2));
         float right = Random.Range(-s_height - (s_height / 2), s_height);
         float up = Random.Range(s_width, s_width + (s_width / 2));
-        float down = Random.Range(-s_width - (s_width / 2), s_width);
-        /*Debug.Log("Left: " + left);
-        Debug.Log("Right: " + right);
-        Debug.Log("Up: " + up);
-        Debug.Log("Down: " + down);*/
+        float down = Random.Range(-s_width - (s_width / 2), s_width);*/
+        float x_right = Random.Range(200,240);
+        float x_left = Random.Range(-240,-200);
+        float z_down = Random.Range(88,105);
+        float z_up = Random.Range(-105,-88);
         //Values outside of the screen, random between up/down, left/right
-        float x_out = Random.value > 0.5f ? left : right;
-        float z_out = Random.value > 0.5f ? up : down;
+        float x_out = Random.value > 0.5f ? x_left : x_right;
+        float z_out = Random.value > 0.5f ? z_up : z_down;
         //Values somewhere within the screen bounds
-        float z_in = Random.Range(-s_width, s_width);
-        float x_in = Random.Range(-s_height, s_height);
+        float x_in = Random.Range(-s_width/2, s_width/2);
+        float z_in = Random.Range(-s_height/2, s_height/2);
 
         if (d == direction.any)
         {
@@ -194,19 +193,19 @@ public class Enemy_Generator : MonoBehaviour
         }
         else if (d == direction.up)
         {
-            return new Vector3(x_in, 0.0f, up);
+            return new Vector3(x_in, 0.0f, z_up);
         }
         else if (d == direction.down)
         {
-            return new Vector3(x_in, 0.0f, down);
+            return new Vector3(x_in, 0.0f, z_down);
         }
         else if (d == direction.left)
         {
-            return new Vector3(left, 0.0f, z_in);
+            return new Vector3(x_left, 0.0f, z_in);
         }
         else if (d == direction.right)
         {
-            return new Vector3(right, 0.0f, z_in);
+            return new Vector3(x_right, 0.0f, z_in);
         }
         else if (d == direction.horizontal)
         {
