@@ -19,6 +19,7 @@ public class Game_Manager : MonoBehaviour
 
     public bool DEBUG;
 
+
     public float time_till_enemy_check = 10.0f;
 
 	void Start ()
@@ -33,7 +34,7 @@ public class Game_Manager : MonoBehaviour
 
         if(time_till_enemy_check >= 0)
         {
-            
+            GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
         }
 	}
 
