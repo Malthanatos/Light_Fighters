@@ -399,7 +399,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GM: {fileID: 691016336}
+  Asteroid: {fileID: 1308129941421652, guid: 819f1224f38b2c8409772b20327bc64b, type: 2}
+  Scout: {fileID: 1184551742976448, guid: 4c7659a4c60819144b378c095d70cd90, type: 2}
   Fighter: {fileID: 1697439777223832, guid: 7e1e60d270b6d364ba2dc0b745cb4a4b, type: 2}
+  Turrent: {fileID: 1880693804630146, guid: aa6b21ae636be2e4d8894304c47ef91f, type: 2}
+  Missile: {fileID: 1060040216772502, guid: 2fe65cafe74b28a408862163f74d6fca, type: 2}
+  Boss: {fileID: 1707353486693218, guid: 46a04c292394b75429b0b0045480b666, type: 2}
+  s_width: 320
+  s_height: 100
+  stage: 0
+  timer: 0
+  stage_2_delay: 1
+  stage_2_asteroids: 12
 --- !u!4 &742598408
 Transform:
   m_ObjectHideFlags: 0
