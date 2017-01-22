@@ -19,23 +19,29 @@ public class Game_Manager : MonoBehaviour
 
     public bool DEBUG;
 
+<<<<<<< HEAD
 
     public float time_till_enemy_check = 10.0f;
 
+=======
+>>>>>>> parent of d429604... stuff
 	void Start ()
     {
-        if (DEBUG == true)
-            EG.Activate_Stage(1);
+        EG.Activate_Stage(1);
 	}
 	
 	void Update ()
     {
+<<<<<<< HEAD
         time_till_enemy_check -= Time.deltaTime;
 
         if(time_till_enemy_check >= 0)
         {
             GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
         }
+=======
+		
+>>>>>>> parent of d429604... stuff
 	}
 
     private void FixedUpdate()
