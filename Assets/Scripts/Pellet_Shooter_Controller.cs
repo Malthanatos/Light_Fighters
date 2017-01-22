@@ -23,6 +23,8 @@ public class Pellet_Shooter_Controller : MonoBehaviour
 
     public float pellet_forward_force;
 
+    enum color {red, blue, green, yellow, cyan, magenta, white };
+
 	void Start ()
     {
 		
@@ -42,5 +44,7 @@ public class Pellet_Shooter_Controller : MonoBehaviour
     {
         if (GM.DEBUG == true)
             print("I am shooting");
+        //Have access to direction and color, then pass color to Pellet_Controller
+        Instantiate(pellet, transform.position, transform.rotation);
     }
 }

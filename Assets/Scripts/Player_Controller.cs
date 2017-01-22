@@ -40,7 +40,6 @@ public class Player_Controller : MonoBehaviour
     public bool has_special;
     bool use_special;
 
-
     public float rotation_speed;
     public float movement_speed;
 
