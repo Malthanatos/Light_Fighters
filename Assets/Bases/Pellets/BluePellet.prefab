@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65729870030742856}
   - component: {fileID: 23378541836132170}
   - component: {fileID: 114570748476934304}
-  - component: {fileID: 54599102855720010}
+  - component: {fileID: 54907833640518440}
   m_Layer: 0
   m_Name: BluePellet
   m_TagString: Pellet
@@ -82,7 +82,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1001640773008990}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54599102855720010
+--- !u!54 &54907833640518440
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -107,7 +107,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114570748476934304
 MonoBehaviour:
@@ -120,4 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5bbd2e2ce474547a1336ba8bf9fa97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LC: {fileID: 0}
   speed: 100
+  color: 1

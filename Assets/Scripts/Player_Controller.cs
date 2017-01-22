@@ -28,94 +28,137 @@ public class Player_Controller : MonoBehaviour
 
     public string player;
 
+    public float health = 100.0f;
+
     //debug firing
     public Pellet_Shooter_Controller pellet_shooter;
     public float shine_time = 0.2f;
 
+    public bool dead = false;
     public bool move;
     public bool aim;
     public float firing_timer;
     public float firing_time;
     public bool firing;
-    public bool has_special;
-    bool use_special;
 
     public float rotation_speed;
     public float movement_speed;
+
+    public float x_bounds;
+    public float y_bounds;
 
     Vector3 aim_vector;
     Quaternion target_rotation;
 
     Vector3 move_vector;
 
+    
+
 	void Start ()
     {
-        has_special = true;
+        
 	}
 	
 	void Update ()
     {
-        if (Input.GetAxis("Move" + player + "X") < -0.1f || Input.GetAxis("Move"+ player + "X") > 0.1f || 
-            Input.GetAxis("Move" + player + "Y") < -0.1f || Input.GetAxis("Move" + player + "Y") > 0.1f)
+        if (health == 0)
+            dead = true;
+        else if (health == 100)
+            dead = false;
+
+        EmissionLevel();
+
+        if (!dead)
         {
-            move_vector = new Vector3(Input.GetAxisRaw("Move" + player + "Y"), 0.0f, Input.GetAxisRaw("Move" + player + "X"));
-            move = true;
-        }
-
-        if (move == true)
-        {
-            transform.position += move_vector * movement_speed * Time.deltaTime;
-            move = false;
-        }
-
-        if (Input.GetAxis("Aim" + player + "X") < -0.1f || Input.GetAxis("Aim" + player + "X") > 0.1f ||
-            Input.GetAxis("Aim" + player + "Y") < -0.1f || Input.GetAxis("Aim" + player + "Y") > 0.1f)
-        {
-            firing = true;
-            firing_timer += Time.deltaTime;
-
-            aim_vector = new Vector3(-Input.GetAxisRaw("Aim" + player + "Y"), 0.0f, -Input.GetAxisRaw("Aim" + player+ "X"));
-            target_rotation = Quaternion.LookRotation(aim_vector, transform.up);
-            aim = true;
-        }
-        else
-        {
-            firing = false;
-            if (firing_timer > 0)
-                firing_timer -= Time.deltaTime;
-
-            if (firing_timer < 0)
-                firing_timer = 0;
-        }
-
-
-        if (Input.GetAxisRaw("Special" + player) == 1)
-        {
-            if (has_special == true)
-                use_special = true;
-        }
-
-        //debug firing
-        if (GM.DEBUG == true)
-        {
-            if (pellet_shooter.GetComponent<MeshRenderer>().enabled == true)
+            if (Input.GetAxis("Move" + player + "X") < -0.1f || Input.GetAxis("Move" + player + "X") > 0.1f ||
+                Input.GetAxis("Move" + player + "Y") < -0.1f || Input.GetAxis("Move" + player + "Y") > 0.1f)
             {
-                shine_time -= Time.deltaTime;
-                if (shine_time <= 0.0f)
+                move_vector = new Vector3(Input.GetAxisRaw("Move" + player + "Y"), 0.0f, Input.GetAxisRaw("Move" + player + "X"));
+                move = true;
+            }
+
+            if (move == true)
+            {
+                transform.position += move_vector * movement_speed * Time.deltaTime;
+                if (transform.position.x > x_bounds)
                 {
-                    pellet_shooter.GetComponent<MeshRenderer>().enabled = false;
-                    shine_time = 0.2f;
+                    transform.position = new Vector3(x_bounds, 0.0f, transform.position.z);
+                }
+                else if (transform.position.x < -x_bounds)
+                {
+                    transform.position = new Vector3(-x_bounds, 0.0f, transform.position.z);
                 }
 
+                if (transform.position.z > y_bounds)
+                {
+                    transform.position = new Vector3(transform.position.x, 0.0f, y_bounds);
+                }
+                else if (transform.position.z < -y_bounds)
+                {
+                    transform.position = new Vector3(transform.position.x, 0.0f, -y_bounds);
+                }
+                move = false;
+            }
+
+            if (Input.GetAxis("Aim" + player + "X") < -0.1f || Input.GetAxis("Aim" + player + "X") > 0.1f ||
+                Input.GetAxis("Aim" + player + "Y") < -0.1f || Input.GetAxis("Aim" + player + "Y") > 0.1f)
+            {
+                firing = true;
+                firing_timer += Time.deltaTime;
+
+                aim_vector = new Vector3(-Input.GetAxisRaw("Aim" + player + "Y"), 0.0f, -Input.GetAxisRaw("Aim" + player + "X"));
+                target_rotation = Quaternion.LookRotation(aim_vector, transform.up);
+                aim = true;
+            }
+            else
+            {
+                firing = false;
+                if (firing_timer > 0)
+                    firing_timer -= Time.deltaTime;
+
+                if (firing_timer < 0)
+                    firing_timer = 0;
+            }
+
+            //debug firing
+            if (GM.DEBUG == true)
+            {
+                if (pellet_shooter.GetComponent<MeshRenderer>().enabled == true)
+                {
+                    shine_time -= Time.deltaTime;
+                    if (shine_time <= 0.0f)
+                    {
+                        pellet_shooter.GetComponent<MeshRenderer>().enabled = false;
+                        shine_time = 0.2f;
+                    }
+
+                }
             }
         }
+    }
 
+    void EmissionLevel()
+    {
+        Renderer rend = GetComponent<Renderer>();
+        Material mat = rend.material;
+        Color base_color = Color.red;
+
+        float emission = health / 100;
+        if (player == "1")
+            base_color = Color.red;
+        else if (player == "2")
+            base_color = Color.green;
+        else if (player == "3")
+            base_color = Color.blue;
+
+        Color final_color = base_color * emission * 2;
+
+        mat.SetColor("_EmissionColor", final_color);
 
     }
 
    void FixedUpdate()
     {
-
 
         if (aim == true)
         {
@@ -135,23 +178,46 @@ public class Player_Controller : MonoBehaviour
             firing_timer = 0;
 
         }
+    }
 
-        if (use_special == true)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
         {
-            has_special = false;
-            if(player == "1")
-            {
+            if (GM.DEBUG)
+                print("I hit an enemy");
 
+            if (other.gameObject.name.Contains("Asteroid"))
+            {
+                health -= 25;
+                if (health < 0)
+                    health = 0;
             }
-            else if(player =="2")
-            {
 
+            else if (other.gameObject.name.Contains("Scout"))
+            {
+                health -= 10;
+                if (health < 0)
+                    health = 0;
             }
-            else if(player == "3")
-            {
 
+        }
+
+        if(other.gameObject.tag == "Pellet")
+        {
+            if (other.gameObject.name.Contains("Grey"))
+            {
+                health -= 10;
+                if (health < 0)
+                    health = 0;
+            }
+            else
+            {
+                health += 1;
+                if (health > 100)
+                    health = 100;
+                    
             }
         }
-         
-    } 
+    }
 }

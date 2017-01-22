@@ -16,7 +16,7 @@ Deletes when it collides with an uncolored pellet
 public class Pellet_Controller : MonoBehaviour
 {
     private Game_Manager GM;
-    private Pellet_Shooter_Controller LC;
+    public LaserController LC;
     
     public float speed;
 
@@ -24,11 +24,10 @@ public class Pellet_Controller : MonoBehaviour
     public enum colors { red, blue, green, yellow, cyan, magenta, white };
     public colors color;
 
-    private colors otherColor;
-
     void Start ()
     {
 		GM = GameObject.FindObjectOfType<Game_Manager>();
+        LC = GameObject.FindObjectOfType<LaserController>();
     }
 	
 	void Update ()
@@ -43,36 +42,86 @@ public class Pellet_Controller : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {   
-        otherColor = other.GetComponent<Pellet_Controller>().color;
         print("I hit something!");
-        
+
+        Vector3 hit = this.transform.position;
+        Quaternion angle = Quaternion.identity;
+
+        angle.eulerAngles = new Vector3( 0, (Quaternion.Angle(this.transform.rotation, other.transform.rotation)), 0);
+
+
         if (other.gameObject.tag == "Pellet")
         {
-            print(otherColor);
-            if (GM.DEBUG == true)
-                print("I am hitting another pellet");
-            Destroy(transform.gameObject);
-            Destroy(other.gameObject);
-            if(this.color == colors.red)
+            if (this.color == colors.red && other.GetComponent<Pellet_Controller>().color == colors.green)
             {
-                print("Red bullet fired ");
+                print("Red and Green Collided ");
+                //move and orient yellow object
+                LC.yellowShoot(hit, angle);
+                Destroy(gameObject);
+                Destroy(other.gameObject);
             }
-
+            else if (this.color == colors.blue && other.GetComponent<Pellet_Controller>().color == colors.green)
+            {
+                print("Blue and Green Collided");
+                //move and orient cyan object
+                LC.cyanShoot(hit, angle);
+                Destroy(gameObject);
+                Destroy(other.gameObject);
+            }
+            else if (this.color == colors.blue && other.GetComponent<Pellet_Controller>().color == colors.red)
+            {
+                print("Blue and Red collided");
+                //move and orient magena object?
+                LC.magentaShoot(hit, angle);
+                Destroy(gameObject);
+                Destroy(other.gameObject);
+            }
+            else if (this.color == colors.red && other.GetComponent<Pellet_Controller>().color == colors.cyan)
+            {
+                print("Red and Cyan Collided ");
+                //move and orient white object?
+                LC.whiteShoot(hit, angle);
+                Destroy(gameObject);
+                Destroy(other.gameObject);
+            }
+            else if (this.color == colors.blue && other.GetComponent<Pellet_Controller>().color == colors.yellow)
+            {
+                print("Blue and Yellow Collided");
+                //move and orient white object
+                LC.whiteShoot(hit, angle);
+                Destroy(gameObject);
+                Destroy(other.gameObject);
+            }
+            else if (this.color == colors.green && other.GetComponent<Pellet_Controller>().color == colors.magenta)
+            {
+                print("Green and Magenta collided");
+                //move and orient white object
+                LC.whiteShoot(hit, angle);
+                Destroy(gameObject);
+                Destroy(other.gameObject);
+            }
+            else
+            {
+                print("Unneeded collision");
+                Destroy(gameObject);
+                Destroy(other.gameObject);
+            }
         }
         else if (other.gameObject.tag == "Player")
         {
             if (GM.DEBUG == true)
                 print("I am hitting a player");
             Destroy(gameObject);
+            //Heal that Player
 
         }
         else if (other.gameObject.tag == "Enemy")
         {
             if (GM.DEBUG == true)
                 print("I am hitting an enemy");
-            Destroy(transform.gameObject);
+            Destroy(gameObject);
 
-            //Damage Enemy
+            //Damage that Enemy
         }
     } 
 }
