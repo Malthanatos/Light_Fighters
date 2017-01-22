@@ -4,7 +4,7 @@ using UnityEngine;
 
 /*
 Laser_Pellet_Controller.cs:
-Has References to: Game_Manager, Laser_Controller,
+Has References to: Game_Manager, Pellet_Shooter_Controller,
 Default pellet is enemy pellet, auto deletes iteself on collision
 Governs the local behavior of given pellets
 Beams are pellets that are rotating spring shapes
@@ -20,10 +20,16 @@ public class Pellet_Controller : MonoBehaviour
     
     public float speed;
 
+
+    public enum colors { red, blue, green, yellow, cyan, magenta, white };
+    public colors color;
+
+    private colors otherColor;
+
     void Start ()
     {
-		
-	}
+		GM = GameObject.FindObjectOfType<Game_Manager>();
+    }
 	
 	void Update ()
     {
@@ -33,5 +39,40 @@ public class Pellet_Controller : MonoBehaviour
     private void FixedUpdate()
     {
 
+    }
+    
+    void OnTriggerEnter(Collider other)
+    {   
+        otherColor = other.GetComponent<Pellet_Controller>().color;
+        print("I hit something!");
+        
+        if (other.gameObject.tag == "Pellet")
+        {
+            print(otherColor);
+            if (GM.DEBUG == true)
+                print("I am hitting another pellet");
+            Destroy(transform.gameObject);
+            Destroy(other.gameObject);
+            if(this.color == colors.red)
+            {
+                print("Red bullet fired ");
+            }
+
+        }
+        else if (other.gameObject.tag == "Player")
+        {
+            if (GM.DEBUG == true)
+                print("I am hitting a player");
+            Destroy(gameObject);
+
+        }
+        else if (other.gameObject.tag == "Enemy")
+        {
+            if (GM.DEBUG == true)
+                print("I am hitting an enemy");
+            Destroy(transform.gameObject);
+
+            //Damage Enemy
+        }
     } 
 }
