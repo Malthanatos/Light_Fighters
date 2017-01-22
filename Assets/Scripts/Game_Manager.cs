@@ -19,8 +19,6 @@ public class Game_Manager : MonoBehaviour
 
     public bool DEBUG;
 
-    public float time_till_enemy_check = 10.0f;
-
 	void Start ()
     {
         EG.Activate_Stage(1);
@@ -28,13 +26,7 @@ public class Game_Manager : MonoBehaviour
 	
 	void Update ()
     {
-        time_till_enemy_check -= Time.deltaTime;
-
-        if(time_till_enemy_check >= 0)
-        {
-            GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
-        }
-
+		
 	}
 
     private void FixedUpdate()
