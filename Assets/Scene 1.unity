@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667564, g: 0.48427135, b: 0.56452316, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -531,7 +531,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GM: {fileID: 691016336}
+  Asteroid: {fileID: -1132822956, guid: 819f1224f38b2c8409772b20327bc64b, type: 2}
+  Scout: {fileID: -237260352, guid: 4c7659a4c60819144b378c095d70cd90, type: 2}
   Fighter: {fileID: -17632104, guid: 7e1e60d270b6d364ba2dc0b745cb4a4b, type: 2}
+  Turrent: {fileID: 0}
+  Missile: {fileID: 0}
+  Boss: {fileID: 907318114, guid: 46a04c292394b75429b0b0045480b666, type: 2}
+  s_width: 320
+  s_height: 100
+  stage: 0
+  timer: 0
+  stage_2_delay: 5
+  stage_2_asteroids: 12
 --- !u!4 &742598408
 Transform:
   m_ObjectHideFlags: 0
