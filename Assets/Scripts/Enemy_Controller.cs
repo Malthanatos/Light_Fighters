@@ -22,6 +22,7 @@ Boss will do nothing, instant death on collision
 public class Enemy_Controller : MonoBehaviour
 {
     public Game_Manager GM;
+    public Enemy_Generator EG;
 
     public enum behavior_type { default_behavior, formation, drift };
     public behavior_type actions = behavior_type.default_behavior;
@@ -32,10 +33,13 @@ public class Enemy_Controller : MonoBehaviour
     public Vector3 aim_vector;
     public Quaternion target_rotation;
     public bool live;
+    public bool bounds;
 
     public void Start()
     {
-
+        GM = GameObject.FindObjectOfType<Game_Manager>();
+        EG = GameObject.FindObjectOfType<Enemy_Generator>();
+        bounds = false;
     }
 
     public void Update()
@@ -62,9 +66,24 @@ public class Enemy_Controller : MonoBehaviour
         if (live)// && !GM.DEBUG)
         {
             transform.position += movement_vector * movement_speed;
-            //transform.rotation = Quaternion.Slerp(transform.rotation, target_rotation, rotation_speed);
-            
+            transform.rotation = Quaternion.Slerp(transform.rotation, target_rotation, rotation_speed);
         }
+        if (!bounds && On_Screen())
+        {
+            bounds = true;
+        }
+        if (bounds && !On_Screen())
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public bool On_Screen()
+    {
+        if (transform.position.x > -EG.s_height && transform.position.x < EG.s_height)
+            if (transform.position.z > -EG.s_width && transform.position.z < EG.s_width)
+                return true;
+        return false;
     }
 
     public virtual void Default_Behvaior() { }

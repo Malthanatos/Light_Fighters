@@ -33,7 +33,7 @@ GameObject:
   - 0: {fileID: -1209903092}
   m_Layer: 0
   m_Name: Fighter
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,6 +55,18 @@ MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 1697439777223832}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!23 &23283075168738128
+MeshRenderer:
+=======
   m_GameObject: {fileID: -17632104}
   m_Enabled: 0
   m_EditorHideFlags: 0
@@ -71,6 +83,7 @@ MonoBehaviour:
   live: 0
 --- !u!23 &1622547280
 Renderer:
+>>>>>>> b4c36b66d9a3b1a989ae97dc54d35ea804113625
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
