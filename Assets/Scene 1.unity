@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667564, g: 0.48427147, b: 0.56452364, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
   move: 0
   aim: 0
   firing_timer: 0
-  firing_time: 0
+  firing_time: 0.1
   firing: 0
   has_special: 0
   rotation_speed: 0.3
@@ -489,7 +489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EG: {fileID: 742598407}
-  DEBUG: 1
+  DEBUG: 0
 --- !u!4 &691016337
 Transform:
   m_ObjectHideFlags: 0
@@ -581,7 +581,7 @@ MonoBehaviour:
   move: 0
   aim: 0
   firing_timer: 0
-  firing_time: 0
+  firing_time: 0.1
   firing: 0
   has_special: 0
   rotation_speed: 0.3
@@ -674,7 +674,7 @@ MonoBehaviour:
   move: 0
   aim: 0
   firing_timer: 0
-  firing_time: 0
+  firing_time: 0.1
   firing: 0
   has_special: 0
   rotation_speed: 0.3

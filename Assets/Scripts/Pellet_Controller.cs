@@ -17,6 +17,8 @@ public class Pellet_Controller : MonoBehaviour
 {
     private Game_Manager GM;
     private Pellet_Shooter_Controller LC;
+    
+    public float speed;
 
     void Start ()
     {
@@ -25,8 +27,8 @@ public class Pellet_Controller : MonoBehaviour
 	
 	void Update ()
     {
-		
-	}
+        transform.position +=(-1*transform.forward*speed*Time.deltaTime);
+    }
 
     private void FixedUpdate()
     {
