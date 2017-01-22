@@ -33,6 +33,7 @@ public class Game_Manager : MonoBehaviour
         if(time_till_enemy_check >= 0)
         {
             GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
+            
         }
 
 	}
