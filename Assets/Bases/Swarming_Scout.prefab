@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23296159533912640}
   - component: {fileID: 114679068232056216}
   - component: {fileID: 54565430724952204}
+  - component: {fileID: 114840250962677974}
   m_Layer: 0
   m_Name: Swarming_Scout
   m_TagString: Enemy
@@ -107,3 +108,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb97fe26d5a07e04fa273aeef1cb555a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114840250962677974
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1821210780281982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdd7ca42b0e505e408101ecbdbdfd965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GM: {fileID: 0}
+  EG: {fileID: 0}
+  actions: 0
+  movement_speed: 0
+  rotation_speed: 0
+  movement_vector: {x: 0, y: 0, z: 0}
+  aim_vector: {x: 0, y: 0, z: 0}
+  target_rotation: {x: 0, y: 0, z: 0, w: 0}
+  live: 0
+  bounds: 0
