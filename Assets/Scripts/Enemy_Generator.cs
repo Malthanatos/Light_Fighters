@@ -39,11 +39,14 @@ public class Enemy_Generator : MonoBehaviour
 
     public float timer;
 
+    public float stage_1_delay = 5.0f;
+    public int stage_1_asteroids = 12;
+
     public float stage_2_delay = 5.0f;
-    public int stage_2_asteroids = 12;
+    public int stage_2_scouts = 12;
 
     public float stage_3_delay = 5.0f;
-    public int stage_3_scouts = 12;
+    public int stage_3_fighters = 12;
 
     void Start()
     {
@@ -56,6 +59,7 @@ public class Enemy_Generator : MonoBehaviour
         {
             Debug.Log("Actvating Stage 1");
             stage = 1;
+            timer = stage_1_delay + Time.fixedTime;
         }
         else if (start_stage == 2)
         {
@@ -63,11 +67,15 @@ public class Enemy_Generator : MonoBehaviour
             stage = 2;
             timer = stage_2_delay + Time.fixedTime;
         }
-        else if (start_stage == 3)
+        if (start_stage == 3)
         {
             Debug.Log("Actvating Stage 3");
             stage = 3;
-            timer = stage_3_delay + Time.fixedTime;
+        }
+        else if (start_stage == 4)
+        {
+            Debug.Log("Actvating Stage 4");
+            stage = 4;
         }
         else
         {
@@ -84,12 +92,6 @@ public class Enemy_Generator : MonoBehaviour
     {
         if (stage == 1)
         {
-            GameObject fighter = (GameObject)Instantiate(Fighter, new Vector3(25.0f, 0.0f, 25.0f), Quaternion.identity);
-            //Enemy_Controller EC = fighter.AddComponent<Enemy_Controller>();
-            //FighterClass f = new FighterClass();
-        }
-        if (stage == 2)
-        {
             //asteroids
             if (timer <= Time.fixedTime)
             {
@@ -97,30 +99,53 @@ public class Enemy_Generator : MonoBehaviour
                 GameObject asteroid = (GameObject)Instantiate(Asteroid, generate_random_direction(direction.any), Quaternion.identity);
                 Enemy_Controller EC = asteroid.GetComponent<Enemy_Controller>();
                 EC.movement_speed = 0.5f;
-                --stage_2_asteroids;
-                timer = stage_2_delay + Time.fixedTime;
+                --stage_1_asteroids;
+                timer = stage_1_delay + Time.fixedTime;
             }
-            if (stage_2_asteroids == 0)
+            if (stage_1_asteroids == 0)
             {
                 stage = 0;
             }
         }
-        if (stage == 3)
+        if (stage == 2)
         {
             //scouts
             if (timer <= Time.fixedTime)
             {
                 Debug.Log("Placing Scout");
                 GameObject scout = (GameObject)Instantiate(Scout, generate_random_direction(direction.any), Quaternion.identity);
-                Enemy_Controller EC = scout.GetComponent<Enemy_Controller>();
-                EC.movement_speed = 0.5f;
-                --stage_3_scouts;
-                timer = stage_3_delay + Time.fixedTime;
+                --stage_2_scouts;
+                timer = stage_2_delay + Time.fixedTime;
             }
-            if (stage_3_scouts == 0)
+            if (stage_2_scouts == 0)
             {
                 stage = 0;
             }
+        }
+        if (stage == 3)
+        {
+            //fighters
+            if (timer <= Time.fixedTime)
+            {
+                Debug.Log("Placing Fighter");
+                GameObject fighter = (GameObject)Instantiate(Fighter, generate_random_direction(direction.any), Quaternion.identity);
+                --stage_3_fighters;
+                timer = stage_3_delay + Time.fixedTime;
+            }
+            if (stage_3_fighters == 0)
+            {
+                stage = 0;
+            }
+        }
+        if (stage == 4)
+        {
+            //scouts
+             for (int i = 0; i < 3; ++i)
+            {
+                Debug.Log("Placing turrent");
+                GameObject turrent = (GameObject)Instantiate(Turrent, generate_random_direction(direction.onscreen), Quaternion.identity);
+            }
+            stage = 0;
         }
     }
 

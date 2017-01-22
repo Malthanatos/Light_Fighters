@@ -119,38 +119,3 @@ public class Enemy_Controller : MonoBehaviour
         return dist;
     }
 }
-
-public class AsteroidClass : Enemy_Controller
-{
-    public override void Default_Behvaior() { }
-    public override void Formation_Behvaior() { }
-    public override void Drift_Behvaior() { }
-}
-
-public class MissileClass : Enemy_Controller
-{
-    public override void Default_Behvaior() { }
-    public override void Formation_Behvaior() { }
-    public override void Drift_Behvaior() { }
-}
-
-public class ScoutClass : Enemy_Controller
-{
-    public override void Default_Behvaior() { }
-    public override void Formation_Behvaior() { }
-    public override void Drift_Behvaior() { }
-}
-
-public class TurrentClass : Enemy_Controller
-{
-    public override void Default_Behvaior() { }
-    public override void Formation_Behvaior() { }
-    public override void Drift_Behvaior() { }
-}
-
-public class BossClass : Enemy_Controller
-{
-    public override void Default_Behvaior() { }
-    public override void Formation_Behvaior() { }
-    public override void Drift_Behvaior() { }
-}
