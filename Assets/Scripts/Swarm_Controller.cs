@@ -16,11 +16,11 @@ public class Swarm_Controller : MonoBehaviour {
     public Vector3 flockCenter;
     public Vector3 flockVelocity;
 
-    //private GameObject[] boids;
+    private GameObject[] boids;
 
     void Start()
     {
-        //boids = new GameObject[flockSize];
+        boids = new GameObject[flockSize];
         for (var i = 0; i < flockSize; i++)
         {
             Vector3 position = new Vector3(
@@ -30,11 +30,10 @@ public class Swarm_Controller : MonoBehaviour {
             ) - GetComponent<Collider>().bounds.extents;
 
             GameObject boid = Instantiate(prefab, transform.position, transform.rotation) as GameObject;
-            boid.GetComponent<Swarming_Scout_Controller>().enabled = true;
             boid.transform.parent = transform;
             boid.transform.localPosition = position;
             boid.GetComponent<Swarming_Scout_Controller>().SetController(gameObject);
-            //boids[i] = boid;
+            boids[i] = boid;
         }
     }
 
@@ -43,7 +42,7 @@ public class Swarm_Controller : MonoBehaviour {
         Vector3 theCenter = Vector3.zero;
         Vector3 theVelocity = Vector3.zero;
 
-        foreach (Transform boid in transform)
+        foreach (GameObject boid in boids)
         {
             theCenter = theCenter + boid.transform.localPosition;
             theVelocity = theVelocity + boid.GetComponent<Rigidbody>().velocity;
@@ -55,11 +54,9 @@ public class Swarm_Controller : MonoBehaviour {
 
     private void OnDestroy()
     {
-        foreach (Transform boid in transform)
+        foreach (Transform child in transform)
         {
-            boid.GetComponent<Swarming_Scout_Controller>().enabled = false;
-            boid.GetComponent<Scout_Controller>().enabled = true;
-            boid.transform.parent = null;
+            child.transform.parent = null;
         }
     }
 }

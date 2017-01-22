@@ -70,9 +70,4 @@ public class Swarming_Scout_Controller : MonoBehaviour {
         chasee = boidController.chasee;
         inited = true;
     }
-
-    private void OnDestroy()
-    {
-        transform.parent = null;
-    }
 }
