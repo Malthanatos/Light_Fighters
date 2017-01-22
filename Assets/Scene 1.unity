@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667564, g: 0.48427135, b: 0.56452316, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -172,8 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GM: {fileID: 691016336}
-  pellet: {fileID: 114570748476934304, guid: 7326ffb44172c7a4b9fc7a22af166a42, type: 2}
-  pellet_forward_force: 0
+  pellet: {fileID: 114570748476934304, guid: dcc98b05c23f1d74fbcecb526d663bb2, type: 2}
 --- !u!1 &172009215
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +181,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 172009216}
+  - component: {fileID: 172009217}
   m_Layer: 0
   m_Name: Yellow
   m_TagString: Untagged
@@ -202,6 +202,19 @@ Transform:
   m_Father: {fileID: 1354823007}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &172009217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 172009215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44e8352edc8458439bf733a83ed8889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GM: {fileID: 691016336}
+  pellet: {fileID: 114570748476934304, guid: 6e8935629f0ae1c49a1236eea76a374b, type: 2}
 --- !u!1 &283052053
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,8 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GM: {fileID: 691016336}
-  pellet: {fileID: 114570748476934304, guid: 7326ffb44172c7a4b9fc7a22af166a42, type: 2}
-  pellet_forward_force: 0
+  pellet: {fileID: 114570748476934304, guid: b204ac65ff773fa49bbd86d08126b95d, type: 2}
 --- !u!1 &642265063
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,8 +471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GM: {fileID: 691016336}
-  pellet: {fileID: 114570748476934304, guid: 7326ffb44172c7a4b9fc7a22af166a42, type: 2}
-  pellet_forward_force: 0
+  pellet: {fileID: 114570748476934304, guid: 57eca78ea369d7b4893c5442abc2bbad, type: 2}
 --- !u!1 &691016335
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,6 +554,8 @@ MonoBehaviour:
   timer: 0
   stage_2_delay: 5
   stage_2_asteroids: 12
+  stage_3_delay: 5
+  stage_3_scouts: 12
 --- !u!4 &742598408
 Transform:
   m_ObjectHideFlags: 0
@@ -813,6 +826,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1354337857}
+  - component: {fileID: 1354337858}
   m_Layer: 0
   m_Name: Magenta
   m_TagString: Untagged
@@ -833,6 +847,19 @@ Transform:
   m_Father: {fileID: 1354823007}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1354337858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1354337856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44e8352edc8458439bf733a83ed8889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GM: {fileID: 691016336}
+  pellet: {fileID: 114570748476934304, guid: 961f4f468c9f150428458889e2cefffe, type: 2}
 --- !u!1 &1354823005
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,7 +889,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GM: {fileID: 0}
   pellet: {fileID: 0}
-  pellet_forward_force: 0
 --- !u!4 &1354823007
 Transform:
   m_ObjectHideFlags: 0
@@ -888,6 +914,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1568528913}
+  - component: {fileID: 1568528914}
   m_Layer: 0
   m_Name: Cyan
   m_TagString: Untagged
@@ -908,6 +935,19 @@ Transform:
   m_Father: {fileID: 1354823007}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1568528914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1568528912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44e8352edc8458439bf733a83ed8889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GM: {fileID: 691016336}
+  pellet: {fileID: 114570748476934304, guid: 232e1cb63a5a74d4790c6a0d5959792a, type: 2}
 --- !u!1 &2006034795
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,6 +1043,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2036290486}
+  - component: {fileID: 2036290487}
   m_Layer: 0
   m_Name: White
   m_TagString: Untagged
@@ -1023,3 +1064,16 @@ Transform:
   m_Father: {fileID: 1354823007}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2036290487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2036290485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44e8352edc8458439bf733a83ed8889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GM: {fileID: 691016336}
+  pellet: {fileID: 114570748476934304, guid: 5432fd2894ff0d24cb223beebf0bfbdd, type: 2}
