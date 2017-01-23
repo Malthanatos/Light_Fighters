@@ -34,17 +34,137 @@ public class Enemy_Controller : MonoBehaviour
     public Quaternion target_rotation;
     public bool live;
     public bool bounds;
+    public Pellet_Controller.colors color = Pellet_Controller.colors.none;
+    public bool has_color = false;
+    public Renderer r;
+
+    public float health = 100;
 
     public void Start()
     {
         GM = GameObject.FindObjectOfType<Game_Manager>();
         EG = GameObject.FindObjectOfType<Enemy_Generator>();
         bounds = false;
+        r = GetComponent<Renderer>();
     }
 
     public void Update()
     {
+        if(color != Pellet_Controller.colors.none && !has_color)
+        {
+            if (color == Pellet_Controller.colors.red)
+            {
+                if (gameObject.name.Contains("Scout"))
+                {
+                    r.sharedMaterial = EG.small[0];
+                }
+                if (gameObject.name.Contains("Fighter"))
+                {
+                    r.sharedMaterial = EG.medium[0];
+                }
+                if (gameObject.name.Contains("Turrent"))
+                {
+                    r.sharedMaterial = EG.large[0];
+                }
+            }
+            if (color == Pellet_Controller.colors.green)
+            {
+                if (gameObject.name.Contains("Scout"))
+                {
+                    r.sharedMaterial = EG.small[1];
+                }
+                if (gameObject.name.Contains("Fighter"))
+                {
+                    r.sharedMaterial = EG.medium[1];
+                }
+                if (gameObject.name.Contains("Turrent"))
+                {
+                    r.sharedMaterial = EG.large[1];
+                }
+            }
+            if (color == Pellet_Controller.colors.blue)
+            {
+                if (gameObject.name.Contains("Scout"))
+                {
+                    r.sharedMaterial = EG.small[2];
+                }
+                if (gameObject.name.Contains("Fighter"))
+                {
+                    r.sharedMaterial = EG.medium[2];
+                }
+                if (gameObject.name.Contains("Turrent"))
+                {
+                    r.sharedMaterial = EG.large[2];
+                }
+            }
+            if (color == Pellet_Controller.colors.cyan)
+            {
+                if (gameObject.name.Contains("Scout"))
+                {
+                    r.sharedMaterial = EG.small[3];
+                }
+                if (gameObject.name.Contains("Fighter"))
+                {
+                    r.sharedMaterial = EG.medium[3];
+                }
+                if (gameObject.name.Contains("Turrent"))
+                {
+                    r.sharedMaterial = EG.large[3];
+                }
+            }
+            if (color == Pellet_Controller.colors.magenta)
+            {
+                if (gameObject.name.Contains("Scout"))
+                {
+                    r.sharedMaterial = EG.small[4];
+                }
+                if (gameObject.name.Contains("Fighter"))
+                {
+                    r.sharedMaterial = EG.medium[4];
+                }
+                if (gameObject.name.Contains("Turrent"))
+                {
+                    r.sharedMaterial = EG.large[4];
+                }
+            }
+            if (color == Pellet_Controller.colors.yellow)
+            {
+                if (gameObject.name.Contains("Scout"))
+                {
+                    r.sharedMaterial = EG.small[5];
+                }
+                if (gameObject.name.Contains("Fighter"))
+                {
+                    r.sharedMaterial = EG.medium[5];
+                }
+                if (gameObject.name.Contains("Turrent"))
+                {
+                    r.sharedMaterial = EG.large[5];
+                }
+            }
+            if (color == Pellet_Controller.colors.gray)
+            {
+                if (gameObject.name.Contains("Scout"))
+                {
+                    r.sharedMaterial = EG.small[6];
+                }
+                if (gameObject.name.Contains("Fighter"))
+                {
+                    r.sharedMaterial = EG.medium[6];
+                }
+                if (gameObject.name.Contains("Turrent"))
+                {
+                    r.sharedMaterial = EG.large[6];
+                }
+            }
 
+            has_color = true;
+        }
+
+
+
+        if (health <= 0)
+            Destroy(gameObject);
     }
 
     public void FixedUpdate()

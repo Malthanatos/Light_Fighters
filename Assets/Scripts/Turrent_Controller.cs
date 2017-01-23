@@ -26,14 +26,15 @@ public class Turrent_Controller : Enemy_Controller
 
     private void fire_missile()
     {
-        Vector3 shift;
-        if (left) {
-            shift = new Vector3(2.5f, 0.0f, 0.0f);
-        }
-        else
-        {
-            shift = new Vector3(-2.5f, 0.0f, 0.0f);
-        }
+        Vector3 shift = Vector3.zero;
+        //If we can fix this it would fire alternating left/right launcher positions
+        //if (left) {
+            //shift = new Vector3(4.0f, 0.0f, -3.0f);
+        //}
+        //else
+        //{
+            //shift = new Vector3(-4.0f, 0.0f, -3.0f);
+        //}
         left = !left;
         //Debug.Log("Firing Missile");
         GameObject missile = (GameObject)Instantiate(EG.Missile, transform.localPosition + shift, transform.rotation);

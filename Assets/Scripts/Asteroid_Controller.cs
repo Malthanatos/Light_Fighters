@@ -15,7 +15,7 @@ public class Asteroid_Controller : Enemy_Controller
         if (movement_vector == new Vector3(0.0f, 0.0f, 0.0f))
         {
             go_to = EG.generate_random_direction(Enemy_Generator.direction.onscreen);
-            Debug.Log(go_to);
+            //Debug.Log(go_to);
             movement_vector = Vector3.Normalize(go_to - transform.position);
             //Debug.Log(movement_vector);
         }

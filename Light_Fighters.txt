@@ -92,3 +92,6 @@ Turrents will use missiles and tend to attack anyone and do not move
 Missiles will are very slow, they track their designated target and explode after a certain amount of time
 Missiles can only be directly destroyed by their color
 Boss will do nothing, instant death on collision
+
+We had to create an extra repo:
+https://github.com/vesper3/git_hub_sucks

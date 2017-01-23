@@ -52,7 +52,7 @@ public class Player_Controller : MonoBehaviour
 
     Vector3 move_vector;
 
-    
+    public AudioClip fire_sound;
 
 	void Start ()
     {
@@ -173,6 +173,7 @@ public class Player_Controller : MonoBehaviour
                 pellet_shooter.GetComponent<MeshRenderer>().enabled = true;
 
             //shoot
+            Sound_Manager.instance.PlaySingle(fire_sound);
             pellet_shooter.Shoot();
 
             firing_timer = 0;
@@ -194,18 +195,39 @@ public class Player_Controller : MonoBehaviour
                     health = 0;
             }
 
+            if (other.gameObject.name.Contains("Missile"))
+            {
+                health -= 50;
+                if (health < 0)
+                    health = 0;
+            }
+
             else if (other.gameObject.name.Contains("Scout"))
             {
                 health -= 10;
                 if (health < 0)
                     health = 0;
             }
+            else if (other.gameObject.name.Contains("Fighter"))
+            {
+                health -= 20;
+                if (health < 0)
+                    health = 0;
+            }
+            else if (other.gameObject.name.Contains("Turrent"))
+            {
+                health -= 100;
+                if (health < 0)
+                    health = 0;
+
+                Destroy(other.gameObject);
+            }
 
         }
 
         if(other.gameObject.tag == "Pellet")
         {
-            if (other.gameObject.name.Contains("Grey"))
+            if (other.gameObject.name.Contains("Gray"))
             {
                 health -= 10;
                 if (health < 0)
@@ -213,7 +235,11 @@ public class Player_Controller : MonoBehaviour
             }
             else
             {
-                health += 1;
+                if (!dead)
+                    health += 1;
+                else
+                    health += 5;
+
                 if (health > 100)
                     health = 100;
                     

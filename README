@@ -1,0 +1,17 @@
+Install all of the provided source materials (all original) into a Unity Project and ensure that the scene is set up to include: a sound controller, a main camera, a sound effect source, a music source, three player objects, an enemy generator object, a game manager object, a laser controller containing the secondary color lasers and a white laser, a background object, and a start box object (at the top of the screen when the game starts)
+
+The Game Manager object can use DEBUG = true to start the game in any of the 10 stages. It defaults to stage 1.
+
+Three XBOX controllers are required to play the game completely.
+
+The Players can heal each other by shooting at damaged or dead allies.
+
+Enemies of the are weak to their color (x4 damage).
+
+The players take the same damage regardless of color.
+
+You can merge the shots to make secondary colors and white.
+
+There are 10 stages.
+
+So far no one has survived stage 10.

@@ -89,6 +89,8 @@ MonoBehaviour:
   target_rotation: {x: 0, y: 0, z: 0, w: 0}
   live: 1
   bounds: 0
+  color: 0
+  health: 100
 --- !u!4 &1519983660
 Transform:
   m_ObjectHideFlags: 1
@@ -109,7 +111,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: -1132822956}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.8326359, y: 3.6132522, z: 3.5947762}

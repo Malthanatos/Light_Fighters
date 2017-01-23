@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33563797198333338}
   - component: {fileID: 23818078775916214}
   - component: {fileID: 114125106673624052}
+  - component: {fileID: 65038485796161654}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Enemy
@@ -55,7 +56,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 07a1ee1c629a57d46afaff1bfdd46a69, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,7 +80,19 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1163551068301500}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: c777ee044dd6f914bbeaa851a7cb7f96, type: 3}
+--- !u!65 &65038485796161654
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1163551068301500}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5915065, y: 0.558013, z: 1.0712572}
+  m_Center: {x: 0, y: 0.06250001, z: -0.19566786}
 --- !u!114 &114125106673624052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,3 +114,5 @@ MonoBehaviour:
   target_rotation: {x: 0, y: 0, z: 0, w: 0}
   live: 0
   bounds: 0
+  color: 0
+  health: 100

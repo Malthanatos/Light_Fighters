@@ -11,7 +11,7 @@ public class Scout_Controller : Enemy_Controller
         {
             Destroy(gameObject);
         }
-        movement_speed = 20.0f;
+        movement_speed = 40.0f;
         transform.position += (transform.forward * movement_speed * Time.deltaTime);
     }
     public override void Formation_Behvaior() { }

@@ -7,15 +7,16 @@ public class Fighter_Controller : Enemy_Controller
     private Pellet_Shooter_Controller LC;
 
     public float timer = 0.0f;
-    public float delay = 5.0f;
+    public float delay = 1.0f;
     private bool left = true;
 
     private new void Start()
     {
         GM = GameObject.FindObjectOfType<Game_Manager>();
         EG = GameObject.FindObjectOfType<Enemy_Generator>();
-        LC = GameObject.FindObjectOfType<Pellet_Shooter_Controller>();
+        LC = GetComponent<Pellet_Shooter_Controller>();
         bounds = false;
+        r = GetComponent<Renderer>();
     }
 
     public override void Default_Behvaior()
